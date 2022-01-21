@@ -1,0 +1,60 @@
+<!DOCtYPE html>
+<html lang ="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>화면 구현(프로토 타입)</title>
+        
+        <link rel ="stylesheet" href="style/finder.css">
+        <script type ="text/javascript" src="./js/jquery-3.6.0.min.js" charset="utf-8"></script>
+        <script type = "text/javascript">
+
+var sel_file =[];
+$(document).ready(function() {
+    $("#input_imgs").on("change", handleImgFileSelect);
+})
+function handleImgFileSelect(e){
+    var files = e.target.files;
+    var filesArr = Array.prototype.slice.call(files);
+
+    filesArr.forEach(function(f){
+        if(!f.type.match("image.*")){
+            alert("이미지 확장자만 가능합니다.");
+            return ;
+        }
+        sel_file = f;
+
+        var reader = new FileReader();
+        reader.onload = function(e){
+            var img_html = "<img src=\"" + e.target.result + "\" />";
+            $(".imgs_wrap").prepend(img_html);
+        }
+        reader.readAsDataURL(f);
+    });
+}
+    </script>
+    </head>
+    {% csrf_token %}
+    <body>
+        <form action ="" method="post" enctype="multipart/form-data" class="aform">
+            <div style="text-align:center">
+                <h2><b>가격대 찾기</b></h2>
+                <p class = "title">운동화 사진을 올려주세요!</p>
+            </div><p>
+            <div class="imgbox">
+                 <div class="imgs_wrap">     
+                     <img id="img"/>  
+                </div>
+            </div>
+            <div class="button">               
+                    <input type="file" name="filename[]" accept="image/jpeg, image/jpg, image/mpeg, image/png, image/gif" 
+                     id="input_imgs" class="input_upload" multiple value="UPLOAD" > 
+                    <input type ="submit" value="SEARCH" id="input_search"> 
+                </div> 
+        </form>
+         <hr class="line">
+         <div class="imgbox2">
+            <div></div>
+         </div>
+    </body>
+    </html>
+    </html>

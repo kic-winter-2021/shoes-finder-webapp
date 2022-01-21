@@ -1,0 +1,54 @@
+.img_wrap{
+    width:500px;
+    height: 480px;
+    margin-top:50px;
+    
+}
+.imgs_wrap img{
+    width : 125px;
+    height : 100px;
+    
+}
+.imgbox{
+    position:relative;
+    width : 500px;
+    height : 500px;
+    border:1px solid black;
+    margin-left:10%;
+}
+.imgbox2{
+    position:relative;
+    width : 500px;
+    height : 500px;
+    border:1px solid black;
+    margin-left:10%;
+    margin-top:15%;
+    margin-bottom:10%;
+}
+
+.button{
+    padding-left: 70%;
+    margin-bottom : 15%;
+}
+.aform{
+ 
+    display:grid;
+}
+.title{
+    text-align: left;
+    margin-left:10%;
+}
+.line{
+    background-color:skyblue;
+    height:50px;
+    border:0;
+}
+#input_search{
+    border:none;
+    cursor: pointer;
+    background-color:skyblue;
+    
+}
+input[type="file"]{
+    border:none;
+}
